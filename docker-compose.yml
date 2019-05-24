@@ -1,0 +1,37 @@
+version: '3'
+services:
+  database:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 8080:80
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      PMA_HOST: database
+
+  wordpress:
+    image: wordpress:5-apache
+    depends_on:
+      - database
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./:/var/www/html/wp-content/plugins/wp-personio
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+volumes:
+    db_data:
