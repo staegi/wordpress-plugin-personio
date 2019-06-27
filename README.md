@@ -2,21 +2,22 @@
 
 ## Installation 
 
-Go to the settings page to set client ID and secret.
+The following command fetches the deploy submodule as well:
 
-## Shortcodes
+    git clone --recursive https://github.com/staegi/wp-personio 
 
-    [personio_team office=Berlin gender=male custom_999999=foo]
+After fetching you can run Wordpress locally via Docker:
 
-## Filter employees
+    docker-compose up -d
 
-    if (!function_exists('wp_personio_filter_team')) {
-        add_action('wp_personio_filter_team', 'wp_personio_filter_team');
+Then you can complete the Wordpress installation process and activate the plugin in the web browser via [http://localhost/]()
+
+## Deployment
+
+The submodule contains a deploy script. Answer the questions:
+
+    ./deploy/deploy.sh 
     
-        function wp_personio_filter_team($employees)
-        {
-            return array_filter($employees, function($employee){
-                return $employee->attributes->gender->value == 'male';
-            }, ARRAY_FILTER_USE_BOTH);
-        }
-    }
+## Usage
+
+See [readme.txt]() 
