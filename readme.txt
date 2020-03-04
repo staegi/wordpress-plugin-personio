@@ -5,7 +5,7 @@ Tags: personio, hr, employees
 Requires at least: 4.9
 Tested up to: 5.2
 Requires PHP: 5.2.4
-Stable Tag: 0.0.1
+Stable Tag: 0.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,14 +20,14 @@ You can use such a shortcode to display the employees list or grid. By using the
 If you need addtional filtering then you can add a hook like the following.
 
     if (!function_exists('wp_personio_filter_team')) {
-        add_action('wp_personio_filter_team', 'wp_personio_filter_team');
-
         function wp_personio_filter_team($employees)
         {
             return array_filter($employees, function($employee){
                 return $employee->attributes->gender->value == 'male';
             }, ARRAY_FILTER_USE_BOTH);
         }
+
+        add_filter('wp_personio_filter_team', 'wp_personio_filter_team');
     }
 
 == Installation ==

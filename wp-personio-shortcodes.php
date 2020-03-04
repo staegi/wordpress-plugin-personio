@@ -40,7 +40,7 @@ if (!function_exists('wp_personio_team_shortcode')) {
         }
 
         // here the user has the capability to filter by a custom function, see readme.md
-        do_action('wp_personio_filter_team', $employees);
+        $employees = apply_filters('wp_personio_filter_team', $employees);
 
         // show this template if no employee is left after filtering
         if (empty($employees)) {
