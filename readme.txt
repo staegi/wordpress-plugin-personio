@@ -1,11 +1,11 @@
-=== wp-personio ===
+=== Personio ===
 Contributors: tomcat2111
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FW95HB4TZDWP8&source=url
 Tags: personio, hr, employees
 Requires at least: 4.9
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.2.4
-Stable Tag: 0.0.2
+Stable Tag: 0.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 

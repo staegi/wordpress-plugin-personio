@@ -2,6 +2,8 @@
 
 class PersonioAPI
 {
+    static $baseUrl = 'https://api.personio.de/v1/';
+
     /**
      * @return int|array
      */
@@ -18,7 +20,7 @@ class PersonioAPI
             return -1;
         }
 
-        $teamEndpoint = 'https://api.personio.de/v1/company/employees';
+        $teamEndpoint = self::$baseUrl . 'company/employees';
         $headers = array('Authorization' => 'Bearer ' . $token);
         $response = wp_remote_get($teamEndpoint, array('headers' => $headers));
         if ($response['response']['code'] != '200') {
@@ -46,7 +48,7 @@ class PersonioAPI
      */
     private static function authenticate()
     {
-        $authEndpoint = 'https://api.personio.de/v1/auth';
+        $authEndpoint = self::$baseUrl . 'auth';
         $clientID = get_option('personio_client_id');
         $clientSecret = get_option('personio_client_secret');
         $credentials = array('client_id' => $clientID, 'client_secret' => $clientSecret);

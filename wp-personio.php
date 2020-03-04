@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: wp-personio
+ * Plugin Name: Personio
  * Description: A plugin to have the shortcodes to embed an overview of employees and their details view
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: Thomas Stägemann
  * Author URI: http://www.staegemann.info
  */
 
 // Version of the plugin
-define('WP_PERSONIO_CURRENT_VERSION', '0.0.2');
+define('WP_PERSONIO_CURRENT_VERSION', '0.0.3');
 
 $wp_personio_options = array(
     'personio_client_id'         => '',
